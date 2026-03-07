@@ -17,7 +17,4 @@ app.get('/',(req,res)=>{
 app.use(express.json())
 app.use(cors())
 
-
-app.listen(PORT,()=>{
-    console.log(`Server Running on port ${PORT} `)
-})
+app.listen(PORT,()=>{});
