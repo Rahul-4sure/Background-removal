@@ -16,6 +16,7 @@ app.get('/', (req,res)=>{
     res.send("Hey I am Rahul");
 });
 
+app.use("/api/user/webhooks", express.raw({ type: "application/json" }))
 app.use('/api/user',userRouter)
 
 export default app;
