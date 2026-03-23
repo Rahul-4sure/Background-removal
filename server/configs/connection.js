@@ -1,11 +1,16 @@
 import mongoose from "mongoose";
 
 const connectDB = async () => {
-    mongoose.connection.on('connected',()=>{
+
+
+    try {
+        await mongoose.connect(`${process.env.URI}/bg-removal`)
         console.log('MongoDB Connected Successfully')
-    })
-    
-    await mongoose.connect(`${process.env.URI}/bg-removal`)
+        
+    } catch (error) {
+        console.log("Database connection error:", error);
+        process.exit(1);
+    }
 
 }
 
