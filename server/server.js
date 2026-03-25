@@ -3,6 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import connectDB from './configs/connection.js'
 import userRouter from './routes/userRoutes.js';
+import imageRouter from './routes/imageRouts.js';
 
 
 const app = express();
@@ -20,6 +21,7 @@ app.get('/', (req,res)=>{
 
 app.use("/api/user/webhooks", express.raw({ type: "application/json" }))
 app.use('/api/user',userRouter)
+app.use('/api/image',imageRouter)
 
 
 app.listen(PORT,(req,res)=>{

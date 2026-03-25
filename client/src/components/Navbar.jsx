@@ -29,7 +29,13 @@ const Navbar = () => {
         <img src={assets.logo} alt="" className="w-32 sm:w-44" />{" "}
       </Link>
       {isSignedIn ? (
-        <div>
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Credits wala part */}
+          <button className="flex items-center gap-2 bg-blue-200 px-4 py-1.5 sm:px-7 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-700  ">
+            <img src={assets.credit_icon} width={25} alt="" />
+            <p className="text-xs sm:text-sm font-medium text-gray-600 ">Credits : {credit}</p>
+          </button>
+          <p className="text-gray-700 max-sm:hidden">Hi, {user.fullName}</p>
           <UserButton />
         </div>
       ) : (
