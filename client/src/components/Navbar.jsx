@@ -1,6 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useClerk, UserButton } from "@clerk/clerk-react";
 import { useContext } from "react";
 import { AppContext } from "../context/appContext";
@@ -13,6 +13,8 @@ const Navbar = () => {
   const { isSignedIn, user } = useClerk();
 
   const {credit,loadCreditsData} = useContext(AppContext)
+  const navigate = useNavigate()
+
 
   useEffect(()=>{
 
@@ -31,7 +33,7 @@ const Navbar = () => {
       {isSignedIn ? (
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Credits wala part */}
-          <button className="flex items-center gap-2 bg-blue-200 px-4 py-1.5 sm:px-7 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-700  ">
+          <button onClick={()=>navigate('/buy')} className="flex items-center gap-2 bg-blue-200 px-4 py-1.5 sm:px-7 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-700  ">
             <img src={assets.credit_icon} width={25} alt="" />
             <p className="text-xs sm:text-sm font-medium text-gray-600 ">Credits : {credit}</p>
           </button>
